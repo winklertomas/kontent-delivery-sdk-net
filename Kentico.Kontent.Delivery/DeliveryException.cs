@@ -21,6 +21,11 @@ namespace Kentico.Kontent.Delivery
         public override string Message { get; }
 
         /// <summary>
+        /// Some property.
+        /// </summary>
+        public bool Property { get; set; }
+
+        /// <summary>
         /// Initializes a new instance of the <see cref="DeliveryException"/> class with information from an error response.
         /// </summary>
         /// <param name="response">The unsuccessful response.</param>
