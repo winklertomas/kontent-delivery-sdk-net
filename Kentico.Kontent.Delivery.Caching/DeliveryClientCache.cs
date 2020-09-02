@@ -108,12 +108,13 @@ namespace Kentico.Kontent.Delivery.Caching
         /// Returns a content type.
         /// </summary>
         /// <param name="codename">The codename of a content type.</param>
+        /// <param name="shouldBeFalse">Should be false.</param>
         /// <returns>The content type with the specified codename.</returns>
-        public async Task<IDeliveryTypeResponse> GetTypeAsync(string codename)
+        public async Task<IDeliveryTypeResponse> GetTypeAsync(string codename, bool shouldBeFalse)
         {
             return await _deliveryCacheManager.GetOrAddAsync(
                 CacheHelpers.GetTypeKey(codename),
-                () => _deliveryClient.GetTypeAsync(codename),
+                () => _deliveryClient.GetTypeAsync(codename, !shouldBeFalse),
                 response => response != null,
                 CacheHelpers.GetTypeDependencies);
         }

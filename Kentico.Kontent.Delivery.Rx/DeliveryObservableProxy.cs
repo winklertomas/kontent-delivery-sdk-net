@@ -126,7 +126,7 @@ namespace Kentico.Kontent.Delivery.Rx
         /// <returns>The <see cref="IObservable{ContentType}"/> that represents the content type with the specified codename.</returns>
         public IObservable<IContentType> GetTypeObservable(string codename)
         {
-            return GetObservableOfOne(() => DeliveryClient?.GetTypeAsync(codename)?.Result.Type);
+            return GetObservableOfOne(() => DeliveryClient?.GetTypeAsync(codename, false)?.Result.Type);
         }
 
         /// <summary>

@@ -37,8 +37,9 @@ namespace Kentico.Kontent.Delivery.Abstractions
         /// Returns a content type.
         /// </summary>
         /// <param name="codename">The codename of a content type.</param>
+        /// <param name="shouldBeFalse">Should be false.</param>
         /// <returns>The <see cref="IDeliveryTypeResponse"/> instance that contains the content type with the specified codename.</returns>
-        Task<IDeliveryTypeResponse> GetTypeAsync(string codename);
+        Task<IDeliveryTypeResponse> GetTypeAsync(string codename, bool shouldBeFalse);
 
         /// <summary>
         /// Returns content types.
