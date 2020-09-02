@@ -127,9 +127,9 @@ namespace Kentico.Kontent.Delivery
         /// Gets a content type by its codename.
         /// </summary>
         /// <param name="codename">The codename of a content type.</param>
-        /// <param name="shouldBeFalse">Should be false.</param>
+        /// <param name="shouldBeTrue">Should be true.</param>
         /// <returns>The <see cref="DeliveryTypeResponse"/> instance that contains the content type with the specified codename.</returns>
-        public async Task<IDeliveryTypeResponse> GetTypeAsync(string codename, bool shouldBeFalse)
+        public async Task<IDeliveryTypeResponse> GetTypeAsync(string codename, bool shouldBeTrue)
         {
             if (codename == null)
             {

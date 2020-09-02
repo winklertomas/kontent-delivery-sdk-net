@@ -313,8 +313,8 @@ namespace Kentico.Kontent.Delivery.Tests
 
             var client = InitializeDeliveryClientWithACustomTypeProvider(_mockHttp);
 
-            var articleType = (await client.GetTypeAsync("article", false)).Type;
-            var coffeeType = (await client.GetTypeAsync("coffee", false)).Type;
+            var articleType = (await client.GetTypeAsync("article", true)).Type;
+            var coffeeType = (await client.GetTypeAsync("coffee", true)).Type;
 
             var taxonomyElement = articleType.Elements["personas"];
             var processingTaxonomyElement = coffeeType.Elements["processing"];
@@ -352,7 +352,7 @@ namespace Kentico.Kontent.Delivery.Tests
 
             var client = InitializeDeliveryClientWithACustomTypeProvider(_mockHttp);
 
-            await Assert.ThrowsAsync<DeliveryException>(async () => await client.GetTypeAsync("unequestrian_nonadjournment_sur_achoerodus", false));
+            await Assert.ThrowsAsync<DeliveryException>(async () => await client.GetTypeAsync("unequestrian_nonadjournment_sur_achoerodus", true));
         }
 
         [Fact]
@@ -1181,7 +1181,7 @@ namespace Kentico.Kontent.Delivery.Tests
 
             var client = InitializeDeliveryClientWithCustomModelProvider(_mockHttp);
 
-            var response = await client.GetTypeAsync("article", false);
+            var response = await client.GetTypeAsync("article", true);
 
             Assert.True(response.ApiResponse.HasStaleContent);
             Assert.Equal("Article", response.Type.System.Name);
@@ -1202,7 +1202,7 @@ namespace Kentico.Kontent.Delivery.Tests
 
             var client = InitializeDeliveryClientWithCustomModelProvider(_mockHttp);
 
-            var response = await client.GetTypeAsync("article", false);
+            var response = await client.GetTypeAsync("article", true);
 
             Assert.False(response.ApiResponse.HasStaleContent);
             Assert.Equal("Article", response.Type.System.Name);

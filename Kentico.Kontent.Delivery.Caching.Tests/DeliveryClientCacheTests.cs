@@ -248,10 +248,10 @@ namespace Kentico.Kontent.Delivery.Caching.Tests
             var scenarioBuilder = new ScenarioBuilder(cacheType);
 
             var scenario = scenarioBuilder.WithResponse(url, type).Build();
-            var firstResponse = await scenario.CachingClient.GetTypeAsync(codename, false);
+            var firstResponse = await scenario.CachingClient.GetTypeAsync(codename, true);
 
             scenario = scenarioBuilder.WithResponse(url, updatedType).Build();
-            var secondResponse = await scenario.CachingClient.GetTypeAsync(codename, false);
+            var secondResponse = await scenario.CachingClient.GetTypeAsync(codename, true);
 
             firstResponse.Should().NotBeNull();
             firstResponse.Should().BeEquivalentTo(secondResponse, o => o.DateTimesBsonCorrection());
@@ -269,11 +269,11 @@ namespace Kentico.Kontent.Delivery.Caching.Tests
             var scenarioBuilder = new ScenarioBuilder();
 
             var scenario = scenarioBuilder.WithResponse(url, type).Build();
-            var firstResponse = await scenario.CachingClient.GetTypeAsync(codename, false);
+            var firstResponse = await scenario.CachingClient.GetTypeAsync(codename, true);
 
             scenario = scenarioBuilder.WithResponse(url, updatedType).Build();
             scenario.InvalidateDependency(CacheHelpers.GetTypesDependencyKey());
-            var secondResponse = await scenario.CachingClient.GetTypeAsync(codename, false);
+            var secondResponse = await scenario.CachingClient.GetTypeAsync(codename, true);
 
             firstResponse.Should().NotBeNull();
             secondResponse.Should().NotBeNull();

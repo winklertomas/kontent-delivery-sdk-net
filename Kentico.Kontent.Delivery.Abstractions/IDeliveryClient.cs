@@ -12,9 +12,9 @@ namespace Kentico.Kontent.Delivery.Abstractions
         /// Returns a strongly typed content item. By default, retrieves one level of linked items.
         /// </summary>
         /// <typeparam name="T">Type of the model. (Or <see cref="object"/> if the return type is not yet known.)</typeparam>
-        /// <param name="codename">The codename of a content item.</param>
+        /// <param name="codename">The code name of a content item.</param>
         /// <param name="parameters">A collection of query parameters, for example, for projection or setting the depth of linked items.</param>
-        /// <returns>The <see cref="IDeliveryItemResponse{T}"/> instance that contains the content item with the specified codename.</returns>
+        /// <returns>The <see cref="IDeliveryItemResponse{T}"/> instance that contains the content item with the specified code name.</returns>
         Task<IDeliveryItemResponse<T>> GetItemAsync<T>(string codename, IEnumerable<IQueryParameter> parameters = null);
 
         /// <summary>
@@ -37,9 +37,9 @@ namespace Kentico.Kontent.Delivery.Abstractions
         /// Returns a content type.
         /// </summary>
         /// <param name="codename">The codename of a content type.</param>
-        /// <param name="shouldBeFalse">Should be false.</param>
+        /// <param name="shouldBeTrue">Should be true.</param>
         /// <returns>The <see cref="IDeliveryTypeResponse"/> instance that contains the content type with the specified codename.</returns>
-        Task<IDeliveryTypeResponse> GetTypeAsync(string codename, bool shouldBeFalse);
+        Task<IDeliveryTypeResponse> GetTypeAsync(string codename, bool shouldBeTrue);
 
         /// <summary>
         /// Returns content types.
